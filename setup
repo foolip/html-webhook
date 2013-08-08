@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+cd "$(dirname $0)"
+
+git clone git@github.com:whatwg/html-mirror.git
+cd html-mirror
+git svn init http://svn.whatwg.org/webapps
+git config svn.authorsfile ../AUTHORS
+git update-ref refs/remotes/git-svn "$(git rev-parse master)"
