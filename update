@@ -6,5 +6,5 @@ COLUMNS=80 LINES=24 git svn rebase > /dev/null
 
 if [ "$(git rev-parse master)" != "$(git rev-parse master@{u})" ]; then
     git log master@{u}..master | mail -s "html-mirror update" root
-    git push > /dev/null
+    git push -q
 fi
