@@ -5,15 +5,16 @@ http.createServer(function (req, res) {
     batch.on('close', function(code) {
       if (code == 0) {
         res.statusCode = 200;
-        console.log('update queued by ' + req.socket.remoteAddress);
+        console.log('update queued by ' + req.socket.remoteAddress +
+                    ' at ' + new Date().toISOString());
       } else {
         res.statusCode = 500;
       }
-      res.end(res.statusCode + ' ' + http.STATUS_CODES[res.statusCode]);
+      res.end(http.STATUS_CODES[res.statusCode]);
     });
     batch.stdin.end('./update');
   } else {
     res.statusCode = 404;
-    res.end(res.statusCode + ' ' + http.STATUS_CODES[res.statusCode]);
+    res.end(http.STATUS_CODES[res.statusCode]);
   }
 }).listen(8731);
