@@ -2,4 +2,4 @@
 
 cd "$(dirname $0)/html-mirror"
 
-git repack > /dev/null
+git repack -q
