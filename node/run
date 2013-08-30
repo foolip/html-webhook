@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# usage: supervise .../html-mirror/node
+
+node update.js 2>&1 | multilog ./log
