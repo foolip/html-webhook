@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
       }
       res.end(http.STATUS_CODES[res.statusCode]);
     });
-    batch.stdin.end('./update');
+    batch.stdin.end(__dirname + '/update');
   } else {
     res.statusCode = 404;
     res.end(http.STATUS_CODES[res.statusCode]);
